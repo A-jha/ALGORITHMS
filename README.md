@@ -6,3 +6,5 @@
 4. Greedy Algorithm
 5. Graph Traversal
 6. Dynamic Programming
+7. Hashing 
+8. NP-Completeness

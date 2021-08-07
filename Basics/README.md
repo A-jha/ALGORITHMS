@@ -218,7 +218,7 @@ T(n) = T(n/2) + C --- This is called recurrence Relation
 
 ## How to solve Recurence Relation
 
-### Substitution Method (Universal Way)
+### 1. Substitution Method (Universal Way)
 
 As per name we have to substitute the value into equations to get result.
 
@@ -248,4 +248,87 @@ T(n) = 1 + Clogn
 
 So we can write O(logn) is time complexity of Binary search
 
+```
+
+### 2. Master Method
+
+Master Method is a direct way to get the solution.
+
+Master method only works on these type of problem
+
+> ```
+> T(n) = aT(n/b) + f(n) where a >= 1 and b > 1
+> ```
+
+Then we can write Recurence Relation as
+
+> ### T(n) = n<sup>log<sub>b<sup>a</sup></sub></sup>[U(n)]
+
+where U(n) depands on h(n) and
+
+> ### h(n) = f(n)/n<sup>log<sub>b<sup>a</sup></sub></sup>
+
+Relation between h(n) and U(n)
+
+| h(n)                       | U(n)                          |
+| -------------------------- | ----------------------------- |
+| n<sup>r</sup><br>r > 0     | O(n<sup>r</sup>)              |
+| n<sup>r</sup><br>r <> 0    | O(1)                          |
+| log(n)<sup>i</sup><br>i>=0 | O(log<sub>2<sup>n</sup></sub> |
+
+Example 1:
+
+```
+T(n) = 8 T(n/2) + n^2
+
+here a = 8 b = 2 f(n) = n^2
+
+then based on master theorem
+x= n^logb(a)
+x = n^log2(8)
+x = n^3
+
+then T(n) = n^3[U(n)]
+
+and U[n] depends on h(n)
+
+h(n) = f(n)/x = 1/n
+
+hence h(n) = n^-1 then second case in table
+
+U(n) = O(1)
+
+T(n) = n^3(O(1))
+
+T(n) = n^3
+
+time complexity will be O(n^3)
+```
+
+Example2 :
+
+```
+T(n) = T(n/2) + c<----binary search
+a = 1 b = 2 f(n) = c
+
+Based on master theorem
+x= n^logb(a)
+x = n^log2(1)
+x = 1
+
+T(n) =n(U(n))
+T(n) = U(n)
+
+Now U(n) depends on h(n)
+
+h(n) = f(n)/x
+h(n) = c
+
+based on table it is case 3 where n = 0
+so h(n) = (log2(n)^0).c <---must write in this form
+
+ then U(n) = (log2(n)^(i+1))/(i+1)
+ U(n) = log2(n).c
+
+ thenorder is O(logn)
 ```
