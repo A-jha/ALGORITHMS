@@ -63,3 +63,110 @@ Algorithm: Let arr[0..n-1] be the input array and the element to be searched be 
 
 3. Since there might be a single element remaining for comparison, check if fibMm1 is 1. If Yes, compare x with that remaining element. If match, return index.
 ```
+
+# 3. Binary search in C++ STL
+
+1. binary_search(start_ptr, end_ptr, num) : This function returns boolean true if the element is present in the container, else returns false.
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    // initializing vector of integers
+    vector<int> arr = {10, 15, 20, 25, 30, 35};
+
+    // using binary_search to check if 15 exists
+    if (binary_search(arr.begin(), arr.end(), 15))
+       cout << "15 exists in vector";
+    else
+       cout << "15 does not exist";
+
+    cout << endl;
+
+    // using binary_search to check if 23 exists
+    if (binary_search(arr.begin(), arr.end(), 23))
+         cout << "23 exists in vector";
+    else
+         cout << "23 does not exist";
+
+    cout << endl;
+}
+```
+
+2. lower_bound(start_ptr, end_ptr, num) : Returns pointer to “position of num” if container contains 1 occurrence of num. Returns pointer to “first position of num” if container contains multiple occurrence of num. Returns pointer to “position of next higher number than num” if container does not contain occurrence of num. Subtracting the pointer to 1st position i.e “vect.begin()” returns the actual index.
+
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+
+    vector<int> arr1 = {10, 15, 20, 25, 30, 35};
+
+    vector<int> arr2 = {10, 15, 20, 20, 25, 30, 35};
+
+    vector<int> arr3 = {10, 15, 25, 30, 35};
+
+    cout << "The position of 20 using lower_bound "
+            " (in single occurrence case) : ";
+    cout << lower_bound(arr1.begin(), arr1.end(), 20)
+            - arr1.begin();
+
+    cout << endl;
+
+    cout << "The position of 20 using lower_bound "
+             "(in multiple occurrence case) : ";
+    cout << lower_bound(arr2.begin(), arr2.end(), 20)
+            - arr2.begin();
+
+    cout << endl;
+
+    cout << "The position of 20 using lower_bound "
+             "(in no occurrence case) : ";
+    cout << lower_bound(arr3.begin(), arr3.end(), 20)
+            - arr3.begin();
+
+    cout << endl;
+}
+```
+
+3. upper_bound(start_ptr, end_ptr, num) : Returns pointer to “position of next higher number than num” if container contains 1 occurrence of num. Returns pointer to “first position of next higher number than last occurrence of num” if container contains multiple occurrence of num. Returns pointer to “position of next higher number than num” if container does not contain occurrence of num. Subtracting the pointer to 1st position i.e “vect.begin()” returns the actual index.
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{s
+    vector<int> arr1 = {10, 15, 20, 25, 30, 35};
+
+    vector<int> arr2 = {10, 15, 20, 20, 25, 30, 35};
+
+    vector<int> arr3 = {10, 15, 25, 30, 35};
+
+    cout << "The position of 20 using upper_bound"
+           " (in single occurrence case) : ";
+    cout << upper_bound(arr1.begin(), arr1.end(), 20)
+            - arr1.begin();
+
+    cout << endl;
+
+    cout << "The position of 20 using upper_bound "
+             "(in multiple occurrence case) : ";
+    cout << upper_bound(arr2.begin(), arr2.end(), 20)
+            - arr2.begin();
+
+    cout << endl;
+
+    cout << "The position of 20 using upper_bound"
+            " (in no occurrence case) : ";
+    cout << upper_bound(arr3.begin(), arr3.end(), 20)
+           - arr3.begin();
+
+    cout << endl;
+}
+
+```
