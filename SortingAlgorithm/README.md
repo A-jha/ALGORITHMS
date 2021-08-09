@@ -50,3 +50,64 @@ To sort an array of size n in ascending order:
 
 3: If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element.
 ```
+
+## 4. Merge Sort
+
+Merge Sort is a Divide and Conquer algorithm.
+
+It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves.
+
+The merge() function is used for merging two halves.
+
+Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation.
+
+> ### T(n) = 2T(n/2) + θ(n)
+
+solution of the recurrence is θ(nLogn).
+
+Time Complexity : O(nlog(n))
+
+```
+MergeSort(arr[], l,  r)
+If r > l
+     1. Find the middle point to divide the array into two halves:
+             middle m = l+ (r-l)/2
+     2. Call mergeSort for first half:
+             Call mergeSort(arr, l, m)
+     3. Call mergeSort for second half:
+             Call mergeSort(arr, m+1, r)
+     4. Merge the two halves sorted in step 2 and 3:
+             Call merge(arr, l, m, r)
+```
+
+## 5. Quick Sort
+
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm.
+
+It picks an element as pivot and partitions the given array around the picked pivot.
+
+There are many different versions of quickSort that pick pivot in different ways.
+
+- Always pick first element as pivot.
+- Always pick last element as pivot (implemented below)
+- Pick a random element as pivot.
+- Pick median as pivot.
+- Worst case : O(n<sup>2</sup>)
+
+```
+T(n) = T(n-1) + \theta(n)
+```
+
+### Best Case
+
+```
+ T(n) = 2T(n/2) + \theta(n)
+```
+
+Time complexity : 0(nLogn).
+
+### Average Case
+
+```
+ T(n) = T(n/9) + T(9n/10) + 0(n)
+```
